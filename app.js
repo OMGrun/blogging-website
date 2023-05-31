@@ -38,7 +38,7 @@ app.get('/compose', (req,res) =>
 
 app.post('/compose',(req,res) =>
 {
-  console.log(req.body.input);
+  console.log(req.body.postTitle, req.body.details);
 })
 
 
