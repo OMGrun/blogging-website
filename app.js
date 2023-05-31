@@ -26,8 +26,10 @@ app.get('/about', (req,res) =>
   res.render(__dirname + "/views/about.ejs", {about : aboutContent}) 
 })
 
-
-
+app.get('/contact', (req,res) =>
+{
+  res.render(__dirname + "/views/contact.ejs", {contact : contactContent})
+})
 
 
 
