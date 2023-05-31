@@ -31,9 +31,15 @@ app.get('/contact', (req,res) =>
   res.render(__dirname + "/views/contact.ejs", {contact : contactContent})
 })
 
+app.get('/compose', (req,res) =>
+{
+  res.render(__dirname + "/views/compose.ejs")
+})
 
-
-
+app.post('/compose',(req,res) =>
+{
+  console.log(req.body.input);
+})
 
 
 
