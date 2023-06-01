@@ -34,3 +34,10 @@
   color: #fff;
 }
 
+/* p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100ch;
+}
+If you do not want to use javascript to limit the characters, you can use this css */

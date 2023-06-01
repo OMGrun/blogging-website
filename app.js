@@ -16,6 +16,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+
+// Home route
 app.get('/', (req,res) =>
 {
   res.render(__dirname + "/views/home.ejs", {StartingContent : homeStartingContent, posts : posts})
@@ -23,16 +25,21 @@ app.get('/', (req,res) =>
 
 })
 
+// About route
 app.get('/about', (req,res) =>
 {
   res.render(__dirname + "/views/about.ejs", {about : aboutContent}) 
 })
 
+
+// Contact route
 app.get('/contact', (req,res) =>
 {
   res.render(__dirname + "/views/contact.ejs", {contact : contactContent})
 })
 
+
+// Compose route
 app.get('/compose', (req,res) =>
 {
   res.render(__dirname + "/views/compose.ejs")
@@ -56,7 +63,7 @@ app.get('/posts/:postName',(req,res) =>
 
     if (requestedTitle === storedTitle )
     {
-      console.log("Match Found!");
+      res.render(__dirname + '/views/post.ejs', {title : post.title, content : post.body})
     }
   })
 })
