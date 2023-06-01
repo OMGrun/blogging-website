@@ -18,7 +18,7 @@ app.use(express.static("public"));
 
 app.get('/', (req,res) =>
 {
-  res.render(__dirname + "/views/home.ejs", {StartingContent : homeStartingContent, post : posts})
+  res.render(__dirname + "/views/home.ejs", {StartingContent : homeStartingContent, posts : posts})
 
 
 })
@@ -40,10 +40,15 @@ app.get('/compose', (req,res) =>
 
 app.post('/compose',(req,res) =>
 {
-  const post = {postTitle : req.body.postTitle, postBody : req.body.postBody};
+  const post = {title : req.body.postTitle, body : req.body.postBody};
   posts.push(post);
   res.redirect('/')
 
+})
+
+app.get('/posts/:title',(req,res) => 
+{
+  console.log(req.params.title);
 })
 
 
@@ -53,3 +58,5 @@ app.post('/compose',(req,res) =>
 app.listen(3000, function() {
   console.log("Server started on port 3000");
 });
+
+
